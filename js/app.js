@@ -1,18 +1,24 @@
-Vue.component('chiild-component', {
-    props: ['propsdata'],
-    template: '<p>{{ propsdata }}</p>'
-});
+var Main = {
+    template: '<div>main</div>'
+};
 
-Vue.component('sibling-component', {
-    props: ['propsdata'],
-    template: '<p>{{ propsdata }}</p>'
-});
+var Login = {
+    template: '<div>login</div>'
+};
 
+var routes = [
+    {
+        path: '/main', component: Main
+    },
+    {
+        path: '/login', component: Login
+    },
+]
+
+var router = new VueRouter({
+    routes
+});
 
 var app = new Vue({
-    el: '#app',
-    data: {
-        message: 'Hello Vue! passed from Component',
-        anotherMessage: 'another message...'
-    }
-});
+    router
+}).$mount('#app');

@@ -6,10 +6,15 @@
 </head>
 <body>
     <div id="app">
-        <chiild-component v-bind:propsdata="message"></chiild-component>
-        <sibling-component v-bind:propsdata="anotherMessage"></sibling-component>
+        <h1>뷰 라우터 예제</h1>
+        <p>
+            <router-link to="/main">Main 컴포넌트로 이동</router-link>
+            <router-link to="/login">Login 컴포넌트로 이동</router-link>
+        </p>
+        <router-view></router-view>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@3.6.5/dist/vue-router.js"></script>
     <script src="./js/app.js"></script>
 </body>
 </html>
