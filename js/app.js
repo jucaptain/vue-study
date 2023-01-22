@@ -1,20 +1,19 @@
+var eventBus = new Vue();
+
 Vue.component('chiild-component', {
-    template: '<button v-on:click="showLog">show</button>',
+    template: '<div>하위 컴포넌트 영역입니다.<button v-on:click="showLog">show</button></div>',
     methods: {
         showLog: function() {
-            this.$emit('show-log');
+            eventBus.$emit('triggerEventBus', 100);
         }
     }
 });
 
 var app = new Vue({
     el: '#app',
-    data: {
-        message: 'Hello Vue! passed from Parent Component'
-    },
-    methods: {
-        printText: function() {
-            console.log('received an event');
-        }
+    created: function() {
+        eventBus.$on('triggerEventBus', function(value) {
+            console.log("이벤트를 전달받음. 전달받은 값 : ", value);
+        });
     }
 });
